@@ -1,6 +1,6 @@
 import { divideBy2, baseConvert, hotPotato } from "./utils.mjs";
 import { PriorityQueue } from "./Queue";
-import { LinkedList } from "./LinkedList.mjs";
+import { LinkedList, DoubleLinkedList } from "./LinkedList.mjs";
 
 console.log("*************************** start ***************************");
 // const num = 33;
@@ -22,13 +22,24 @@ console.log("*************************** start ***************************");
 // let winner = hotPotato(names, 7);
 // console.log("The winner is: " + winner);
 
-const linkedList = new LinkedList();
+// const linkedList = new LinkedList();
+// linkedList.append("first");
+// linkedList.append("second");
+// linkedList.append("third");
+// linkedList.append("forth");
+// linkedList.removeAt(0);
+// linkedList.print();
+// console.log(linkedList.indexOf("second"));
+// console.log(linkedList.indexOf("abc"));
+// console.log(linkedList.toString());
+
+//双向链表测试
+const linkedList = new DoubleLinkedList();
 linkedList.append("first");
 linkedList.append("second");
 linkedList.append("third");
 linkedList.append("forth");
-linkedList.removeAt(0);
-linkedList.print();
-console.log(linkedList.indexOf("second"));
-console.log(linkedList.indexOf("abc"));
-console.log(linkedList.toString());
+const current = linkedList.getNode(1);
+console.log(`previous:${current.prev.element}`);
+console.log(`current:${current.element}`);
+console.log(`next:${current.next.element}`);

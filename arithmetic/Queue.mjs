@@ -33,6 +33,9 @@ export const Queue = (function() {
   return Queue;
 })();
 
+/**
+ * 优先队列
+ */
 export const PriorityQueue = (function() {
   const items = new WeakMap();
   function QueueElement(element, priority) {
