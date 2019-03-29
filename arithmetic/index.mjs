@@ -1,6 +1,7 @@
 import { divideBy2, baseConvert, hotPotato } from "./utils.mjs";
 import { PriorityQueue } from "./Queue";
 import { LinkedList, DoubleLinkedList } from "./LinkedList.mjs";
+import { Set } from "./Set.mjs";
 
 console.log("*************************** start ***************************");
 // const num = 33;
@@ -33,13 +34,23 @@ console.log("*************************** start ***************************");
 // console.log(linkedList.indexOf("abc"));
 // console.log(linkedList.toString());
 
-//双向链表测试
-const linkedList = new DoubleLinkedList();
-linkedList.append("first");
-linkedList.append("second");
-linkedList.append("third");
-linkedList.append("forth");
-const current = linkedList.getNode(1);
-console.log(`previous:${current.prev.element}`);
-console.log(`current:${current.element}`);
-console.log(`next:${current.next.element}`);
+// //双向链表测试
+// const linkedList = new DoubleLinkedList();
+// linkedList.append("first");
+// linkedList.append("second");
+// linkedList.append("third");
+// linkedList.append("forth");
+// const current = linkedList.getNode(1);
+// console.log(`previous:${current.prev.element}`);
+// console.log(`current:${current.element}`);
+// console.log(`next:${current.next.element}`);
+
+// const list = new Set();
+// list.add("张三");
+// list.add("李四");
+// list.add("王一");
+// list.add("赵二");
+// console.log(`赵二${list.has("赵二") ? "在" : "不在"}里面`);
+// console.log(`赵六${list.has("赵六") ? "在" : "不在"}里面`);
+
+
