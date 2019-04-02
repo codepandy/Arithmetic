@@ -3,6 +3,7 @@ import { PriorityQueue } from "./Queue";
 import { LinkedList, DoubleLinkedList } from "./LinkedList.mjs";
 import { Set } from "./Set.mjs";
 import { BinarySearchTree } from "./BinarySearchTree.mjs";
+import { Graph } from "./Graph.mjs";
 
 console.log("*************************** start ***************************");
 // const num = 33;
@@ -54,30 +55,54 @@ console.log("*************************** start ***************************");
 // console.log(`赵二${list.has("赵二") ? "在" : "不在"}里面`);
 // console.log(`赵六${list.has("赵六") ? "在" : "不在"}里面`);
 
-const tree = new BinarySearchTree();
-tree.insert(11);
-tree.insert(7);
-tree.insert(15);
-tree.insert(5);
-tree.insert(3);
-tree.insert(9);
-tree.insert(8);
-tree.insert(10);
-tree.insert(13);
-tree.insert(12);
-tree.insert(14);
-tree.insert(20);
-tree.insert(18);
-tree.insert(25);
-tree.insert(6);
-// tree.inOrderTraverse(function(key) {
-//   console.log(key);
-// });
+// const tree = new BinarySearchTree();
+// tree.insert(11);
+// tree.insert(7);
+// tree.insert(15);
+// tree.insert(5);
+// tree.insert(3);
+// tree.insert(9);
+// tree.insert(8);
+// tree.insert(10);
+// tree.insert(13);
+// tree.insert(12);
+// tree.insert(14);
+// tree.insert(20);
+// tree.insert(18);
+// tree.insert(25);
+// tree.insert(6);
+// // tree.inOrderTraverse(function(key) {
+// //   console.log(key);
+// // });
 // tree.preOrderTraverse(function(key) {
 //   console.log(`pre ${key}`);
 // });
-// tree.postOrderTraverse(function(key) {
-//   console.log(`post ${key}`);
+// // tree.postOrderTraverse(function(key) {
+// //   console.log(`post ${key}`);
+// // });
+// console.log(`15${tree.search(5) ? "在" : "不在"}树中。`);
+// console.log(`16${tree.search(16) ? "在" : "不在"}树中。`);
+
+// tree.remove(15);
+// console.log(`15${tree.search(15) ? "在" : "不在"}树中。`);
+// tree.preOrderTraverse(function(key) {
+//   console.log(`pre ${key}`);
 // });
-console.log(`5${tree.search(5) ? "在" : "不在"}树中。`);
-console.log(`16${tree.search(16) ? "在" : "不在"}树中。`);
+
+var graph = new Graph();
+var myVertices = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
+for (var i = 0; i < myVertices.length; i++) {
+  graph.addVertex(myVertices[i]);
+}
+graph.addEdge("A", "B");
+graph.addEdge("A", "C");
+graph.addEdge("A", "D");
+graph.addEdge("C", "D");
+graph.addEdge("C", "G");
+graph.addEdge("D", "G");
+graph.addEdge("D", "H");
+graph.addEdge("B", "E");
+graph.addEdge("B", "F");
+graph.addEdge("E", "I");
+
+console.log(graph.toString());

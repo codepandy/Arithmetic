@@ -19,6 +19,7 @@ export const BinarySearchTree = (function() {
       }
     }
   }
+  // 中序遍历
   function inOrderTraverse(node, callback) {
     if (node !== null) {
       // 子 父 子
@@ -27,6 +28,7 @@ export const BinarySearchTree = (function() {
       inOrderTraverse(node.right, callback);
     }
   }
+  // 先序遍历
   function preOrderTraverse(node, callback) {
     if (node !== null) {
       // 父 子 子
@@ -35,6 +37,7 @@ export const BinarySearchTree = (function() {
       preOrderTraverse(node.right, callback);
     }
   }
+  // 后序遍历
   function postOrderTraverse(node, callback) {
     if (node !== null) {
       // 子 子 父
@@ -55,42 +58,46 @@ export const BinarySearchTree = (function() {
       return true;
     }
   }
-  function removeNode() {
+  function findMinNode(nodes) {
+    let node = nodes;
+    if (node) {
+      while (node && node.left) {
+        node = node.left;
+      }
+      return node;
+    }
+    return null;
+  }
+  function removeNode(node, key) {
     if (node === null) {
-      //{2}
       return null;
     }
     if (key < node.key) {
-      //{3}
-      node.left = removeNode(node.left, key); //{4}
-      return node; //{5}
+      node.left = removeNode(node.left, key);
+      return node;
     } else if (key > node.key) {
-      //{6}
-      node.right = removeNode(node.right, key); //{7}
-      return node; //{8}
+      node.right = removeNode(node.right, key);
+      return node;
     } else {
       //键等于node.key
       //第一种情况——一个叶节点
       if (node.left === null && node.right === null) {
-        //{9}
-        node = null; //{10}
-        return node; //{11}
+        node = null;
+        return node;
       }
       //第二种情况——一个只有一个子节点的节点
       if (node.left === null) {
-        //{12}
-        node = node.right; //{13}
-        return node; //{14}
+        node = node.right;
+        return node;
       } else if (node.right === null) {
-        //{15} 7
-        node = node.left; //{16}
-        return node; //{17}
+        node = node.left;
+        return node;
       }
       //第三种情况——一个有两个子节点的节点 7
-      var aux = findMinNode(node.right); //{18}
-      node.key = aux.key; //{19}
-      node.right = removeNode(node.right, aux.key); //{20}
-      return node; //{21}
+      var aux = findMinNode(node.right);
+      node.key = aux.key;
+      node.right = removeNode(node.right, aux.key);
+      return node;
     }
   }
   let root = null;
@@ -138,7 +145,9 @@ export const BinarySearchTree = (function() {
       }
       return null;
     }
-    remove() {}
+    remove(key) {
+      root = removeNode(root, key);
+    }
   }
   return BinarySearchTree;
 })();
